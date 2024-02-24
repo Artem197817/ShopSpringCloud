@@ -1,0 +1,28 @@
+.button {
+    background-color: aqua;
+    font-size: 48px;
+    margin: 15px;
+}
+
+.header {
+    font-size: 80px;
+    text-align: center;
+    height: 200px;
+    background-color: rgb(253, 224, 187);
+    font-weight: bolder;
+
+}
+
+.block {
+    width: 750px;
+    display: contents;
+
+    justify-content: center;
+    margin: 15px;
+    font-size: 48px;
+    text-align: center;
+}
+
+.cuan {
+    text-align: center;
+}

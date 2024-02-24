@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Магазин</title>
+    <link th:href="@{/styles/shop.css}" rel="stylesheet" />
+</head>
+
+<body>
+    <div class="header">
+        <p>Магазин</p>
+        <p><span th:text="${message}"></span></p>
+    </div>
+    <div class="content">
+        <div class="block" th:each="war:${warehouses}">
+
+            <img th:src="@{/images/note.jpg}" alt="Product" />
+            <div class="result">
+                <form action="/shop/buy" th:object="${warehouse}" method="post">
+                    <p>id - <span th:text="${war.id}"></span></p>
+                    <p>Name - <span th:text="${war.productName}"></span> </p>
+                    <p>Цена - <span th:text="${war.price}"></span></p>
+                    <p>В наличии - <span th:text="${war.quantity}"> шт </span></p>
+
+                    <p class="basket"> В корзину </p>
+                    <input class="quan" type="number" step="any" name="quantity"><br />
+                    <button class="button" type="submit" th:value="${war.id}" name="id">Купить</button>
+
+                </form>
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>

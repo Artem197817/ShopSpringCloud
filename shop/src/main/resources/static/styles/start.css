@@ -1,0 +1,11 @@
+.button{
+    background-color: aqua;
+    font-size: 48px;
+}
+.header {
+    text-align: center;
+    height: 200px;
+    background-color: rgb(253, 224, 187);
+    display: block;
+    justify-content: center;
+}

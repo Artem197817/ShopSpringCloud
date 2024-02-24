@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="CompilerConfiguration">
+    <annotationProcessing>
+      <profile name="Maven default annotation processors profile" enabled="true">
+        <sourceOutputDir name="target/generated-sources/annotations" />
+        <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
+        <outputRelativeToContentRoot value="true" />
+        <module name="apiGateAway" />
+        <module name="payment" />
+        <module name="shop" />
+        <module name="warehouse" />
+        <module name="eurekaServer" />
+      </profile>
+    </annotationProcessing>
+    <bytecodeTargetLevel>
+      <module name="apiGateAway" target="17" />
+      <module name="eurekaServer" target="17" />
+      <module name="payment" target="17" />
+      <module name="shop" target="17" />
+      <module name="shop-spring-cloud" target="17" />
+      <module name="warehouse" target="17" />
+    </bytecodeTargetLevel>
+  </component>
+  <component name="JavacSettings">
+    <option name="ADDITIONAL_OPTIONS_OVERRIDE">
+      <module name="apiGateAway" options="-parameters" />
+      <module name="eurekaServer" options="-parameters" />
+      <module name="payment" options="-parameters" />
+      <module name="shop" options="-parameters" />
+      <module name="warehouse" options="-parameters" />
+    </option>
+  </component>
+</project>

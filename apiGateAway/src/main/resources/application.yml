@@ -1,0 +1,14 @@
+server:
+  port: 8089
+spring:
+  application:
+    name: api-gate
+routes:
+  - id: Payment
+    uri: http://localhost:8082/
+    predicates:
+      - Path=/account/**
+  - id: Warehouse
+    uri: http://localhost:8083/
+    predicates:
+      - Path=/warehouse/**

@@ -1,0 +1,53 @@
+.header {
+    font-size: 80px;
+    text-align: center;
+    height: 200px;
+    background-color: rgb(253, 224, 187);
+    font-weight: bolder;
+}
+
+.result {
+    width: 400px;
+    height: 350px;
+    text-align: center;
+    font-size: 24px;
+    background-color: rgb(109, 101, 101);
+    color: rgb(243, 183, 71);
+
+
+}
+
+.block {
+    width: 750px;
+    height: 350px;
+    display: flex;
+    margin: 15px;
+
+}
+
+.content {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+p,
+a {
+    margin: 6px;
+}
+
+.button {
+    background-color: aqua;
+    font-size: 25px;
+}
+
+.quan {
+    width: 50px;
+    text-align: center;
+    font-size: 24px;
+    color: #855ef0;
+}
+.basket{
+    color: #855ef0;
+    text-transform: uppercase;
+}
