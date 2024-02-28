@@ -25,4 +25,9 @@ public class Account {
     public Account(String name) {
         this.name = name;
     }
+
+    public Account(String name, BigDecimal amount) {
+        this.name = name;
+        this.amount = amount;
+    }
 }

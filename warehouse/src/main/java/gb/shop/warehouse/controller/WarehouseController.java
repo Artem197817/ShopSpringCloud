@@ -31,7 +31,7 @@ public class WarehouseController {
         return warehouseService.findWarehouseById(id);
     }
 
-    @GetMapping("/{id}/{quantity}")
+    @PostMapping("/{id}/{quantity}")
     public String reserve(@PathVariable Long id, @PathVariable Integer quantity) {
         return warehouseService.reserveProduct(id, quantity);
     }

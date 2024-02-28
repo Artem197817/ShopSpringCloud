@@ -5,6 +5,7 @@ import gb.shop.warehouse.model.Warehouse;
 import gb.shop.warehouse.model.WarehouseReserve;
 import gb.shop.warehouse.repository.WarehouseRepository;
 import gb.shop.warehouse.repository.WarehouseReserveRepository;
+import jakarta.annotation.PostConstruct;
 import lombok.AllArgsConstructor;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
@@ -43,5 +44,10 @@ public class WarehouseService {
 
     public void saveWarehouse(Warehouse warehouse) {
         warehouseRepository.save(warehouse);
+    }
+
+    @PostConstruct
+    public void init(){
+        saveWarehouse(new Warehouse("notebook",1.0 , 1000));
     }
 }

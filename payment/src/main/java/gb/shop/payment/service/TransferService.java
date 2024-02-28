@@ -7,7 +7,7 @@ import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 import java.math.BigDecimal;
-import java.util.List;
+
 
 @Service
 @AllArgsConstructor
@@ -20,19 +20,19 @@ public class TransferService {
         Account sender = accountRepository.findById(idSender).orElse(null);
         Account receiver = accountRepository.findById(idReceiver).orElse(null);
             BigDecimal senderBalance = new BigDecimal(0);
-        if (sender != null && receiver != null) {
-            senderBalance = sender.getAmount().subtract(amount);
-            sender.setAmount(sender.getAmount().subtract(amount));
-            receiver.setAmount(receiver.getAmount().add(amount));
+        if (sender != null && receiver != null ) {
+            if (sender.getAmount().intValue() > amount.intValue()) {
+                senderBalance = sender.getAmount().subtract(amount);
 
-            accountRepository.save(sender);
-            accountRepository.save(receiver);
+                sender.setAmount(sender.getAmount().subtract(amount));
+                receiver.setAmount(receiver.getAmount().add(amount));
 
+                accountRepository.save(sender);
+                accountRepository.save(receiver);
+                return "Оплачено. Ваш баланс - " + senderBalance + " у.е";
+            }
         }
-        return "Оплачено. Ваш баланс - " + senderBalance + " у.е";
+        return "Повторите операцию. Ваш баланс - " + senderBalance + " у.е";
     }
 
-    public List<Account> getAllAccounts() {
-        return accountRepository.findAll();
-    }
 }
