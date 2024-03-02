@@ -3,3 +3,11 @@ server:
 spring:
   application:
     name: warehouse
+management:
+  endpoints:
+    web:
+      exposure:
+        include: metrics,prometheus,health
+  endpoint:
+    health:
+      show-details: always

@@ -5,6 +5,8 @@ import gb.shop.warehouse.model.Warehouse;
 import gb.shop.warehouse.model.WarehouseReserve;
 import gb.shop.warehouse.repository.WarehouseRepository;
 import gb.shop.warehouse.repository.WarehouseReserveRepository;
+import io.micrometer.core.instrument.Counter;
+import io.micrometer.core.instrument.Metrics;
 import jakarta.annotation.PostConstruct;
 import lombok.AllArgsConstructor;
 import org.springframework.stereotype.Service;
@@ -15,6 +17,8 @@ import java.util.List;
 @AllArgsConstructor
 @Service
 public class WarehouseService {
+
+    private final Counter reserveProductWarehouse = Metrics.counter("reserve_product_warehouse");
 
     private final WarehouseRepository warehouseRepository;
     private final WarehouseReserveRepository warehouseReserveRepository;
@@ -30,6 +34,7 @@ public class WarehouseService {
 
     @Transactional
     public String reserveProduct(Long warehouseId, int quantity) {
+        reserveProductWarehouse.increment();
         Warehouse warehouse = findWarehouseById(warehouseId);
         if (warehouse == null) return "Продукт не найден";
         int remains = warehouse.getQuantity() - quantity;
