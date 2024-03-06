@@ -1,6 +1,7 @@
 package gb.shop.shop.controller;
 
 import gb.shop.payment.dto.TransferRequest;
+import gb.shop.shop.service.FileGateWay;
 import gb.shop.warehouse.model.Warehouse;
 import io.micrometer.core.instrument.Timer;
 import lombok.AllArgsConstructor;
@@ -21,6 +22,8 @@ public class ShopController {
 
     private final WarehouseController warehouseController;
     private final AccountController accountController;
+
+    private final FileGateWay fileGateWay;
 
     private final Timer timer = Metrics.timer("payment_shop_method");
 
@@ -51,6 +54,8 @@ public class ShopController {
         modelAndView.getModelMap().addAttribute("message", message);
         List<Warehouse> warehouses = warehouseController.getAllWarehouse();
         modelAndView.getModelMap().addAttribute("warehouses", warehouses);
+        String messageToFile = "Reserve " +  warehouses.get(0).toString() + " quantity " + quantity;
+        fileGateWay.writeToFile( "reserve.txt", messageToFile);
         return modelAndView;
 
     }
