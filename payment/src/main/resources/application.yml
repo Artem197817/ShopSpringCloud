@@ -3,15 +3,7 @@ server:
 spring:
   application:
     name: payment
-    mail:
-      host: smtp.gmail.com
-      port: 587
-      username: artem1978test
-      password: A545575a*
-      smtp:
-        auth: true
-        starttls:
-          enable: true
+
 management:
   endpoints:
     web:
